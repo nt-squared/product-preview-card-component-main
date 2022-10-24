@@ -1,1 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
 
+@import "reset";
+@import "variables";
+
+
+
+
+html, body {
+    font-size: $--fs-base;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+}
+
+
+
+// Mobile view
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.1rem;
+    background-color: $--clr-primary-light;
+    max-width: 1440px;
+
+    & .card {
+        display: flex;
+        flex-direction: column;
+        font-family: $--ff-body;
+        color: $--clr-neutral-dark;
+        background-color: $--clr-neutral-light;  
+        border-radius: 10px;
+        overflow: hidden;
+        
+        & .card-image img {
+            width: 100%;
+            height: auto;
+
+            &.mobile {
+                display: block;
+            }
+
+            &.desktop {
+                display: none;
+            }
+        }
+        
+
+        & .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.8rem;
+            
+            & .card-header {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                & > div {
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                    font-size: .8rem;
+                    font-weight: 500;
+                }
+
+                & > h1 {
+                    font-family: $--ff-header;
+                    font-size: 32px;
+                    font-weight: 700;
+                    line-height: 1;
+                    color: $--clr-neutral-darker;
+                }
+            }
+
+            & .card-center {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+    
+                & .card-desc {
+                    font-size: $--fs-base;
+                    font-weight: 500;
+                    line-height: 1.6;
+                }
+                
+                & .card-price {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    
+                    & > div:first-child {
+                        font-size: 32px;
+                        font-family: $--ff-header;
+                        font-weight: 700;
+                        color: $--clr-primary-dark;
+                    }
+    
+                    & > div:last-child {
+                        font-size: .9rem;
+                        text-decoration-line: line-through;
+                    }
+                }
+            }
+
+            & .card-footer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .8rem;
+                padding: 1.05rem;
+                font-weight: 600;
+                font-size: $--fs-base;
+                border-radius: 7px;
+                background-color: $--clr-primary-dark;
+                color: $--clr-neutral-light;
+                
+                &:hover {
+                    background-color: hsl(158, 36%, 20%);
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+// Desktop view
+@media screen and (min-width: 376px) {
+    .wrapper {
+        padding: 10rem 24rem;
+        box-shadow: 0 10px 30px rgba(0 0 0 / .15);
+
+        & .card {
+            flex-direction: row;
+            max-width: 40rem;
+
+            & .card-image {
+                flex: 1;
+                min-width: 50%;
+            
+                & img.mobile {
+                    display: none;
+                }
+
+                & img.desktop {
+                    display: block;
+                    height: 100%;
+                }
+            }
+
+            & .card-details {
+                flex: 1;
+                padding: 2rem;
+            }
+        }
+    }
+}
