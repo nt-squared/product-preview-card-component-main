@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+html, body {
+  font-size: 14px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.1rem;
+  background-color: hsl(30deg, 38%, 92%);
+}
+.wrapper .card {
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  color: hsl(228deg, 12%, 48%);
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 37ch;
+}
+.wrapper .card .card-image img {
+  width: 100%;
+  height: auto;
+}
+.wrapper .card .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.8rem;
+}
+.wrapper .card .card-details .card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.wrapper .card .card-details .card-header > div {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.wrapper .card .card-details .card-header > h1 {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: hsl(212deg, 21%, 14%);
+}
+.wrapper .card .card-details .card-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.wrapper .card .card-details .card-center .card-desc {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.wrapper .card .card-details .card-center .card-price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.wrapper .card .card-details .card-center .card-price > div:first-child {
+  font-size: 32px;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  color: hsl(158deg, 36%, 37%);
+}
+.wrapper .card .card-details .card-center .card-price > div:last-child {
+  font-size: 0.9rem;
+  text-decoration-line: line-through;
+}
+.wrapper .card .card-details .card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.05rem;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 7px;
+  background-color: hsl(158deg, 36%, 37%);
+  color: hsl(0deg, 0%, 100%);
+}
+.wrapper .card .card-details .card-footer:hover {
+  background-color: hsl(158deg, 36%, 20%);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    min-width: 1440px;
+    padding: 10rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  .wrapper .card {
+    flex-direction: row;
+    min-width: 62ch;
+  }
+  .wrapper .card .card-image {
+    flex: 1;
+    min-width: 50%;
+  }
+  .wrapper .card .card-image img {
+    display: block;
+    height: 100%;
+  }
+  .wrapper .card .card-details {
+    flex: 1;
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
